@@ -1,0 +1,32 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 24px;
+    font-size: 10px;
+    scrollbar-color: #aaaaaa;
+}
+
+.containerHeader {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+/* .containerHeader:hover {
+    background-color: #aaaaaa;
+} */
+
+.containerContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    margin: 16px 0;
+    gap: 32px 8px;
+}
+
+.filterSpan {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+}

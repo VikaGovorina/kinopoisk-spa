@@ -1,0 +1,38 @@
+
+.movieContainer {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    width: 100%;
+}
+
+.poster {
+    height: 344px;
+    overflow: hidden;
+    position: relative;
+}
+
+.posterImage {
+    cursor: pointer;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.ratingSpanContainer {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    margin: 8px;
+    content: "";
+}
+
+.ratingSpan {
+    background-color: var(--color-grey);
+    color: white;
+    padding: 1px 4px;
+    font-weight: 500;
+    line-height: 1.8rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
