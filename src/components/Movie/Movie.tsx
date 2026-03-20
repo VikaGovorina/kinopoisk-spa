@@ -15,8 +15,10 @@ export const Movie = function Movie({ movieData }: { movieData: MovieType }) {
                     </div>
                     : null}
             </div>
-            <p className={styles.title}>{movieData.alternativeName}</p>
-            <p className={styles.info}>{movieData.year}</p>
+            <div className={styles.textContent}>
+                <p className={styles.title}>{movieData.alternativeName}</p>
+                <p className={styles.info}>{movieData.year}</p>
+            </div>
         </div>
     )
 }

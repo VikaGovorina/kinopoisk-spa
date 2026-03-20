@@ -36,3 +36,25 @@
     font-size: 0.9rem;
     cursor: pointer;
 }
+
+.textContent {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1rem;
+}
+
+.title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1; 
+    line-clamp: 1;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.info {
+    font-size: 0.7rem;
+    color: var(--color-grey);
+    color: var(--text-secondary);
+}

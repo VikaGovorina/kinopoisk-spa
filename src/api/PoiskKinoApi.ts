@@ -9,13 +9,13 @@ const api = axios.create({
 });
 
 export const PoiskKinoApi = {
-    async getMovies(page: number) {
+    async getMovies(next?: string) {
         const options = {
             method: 'GET',
             url: "/movie",
             params: {
-                page,
-                limit: 50
+                limit: 50,
+                ...(next && { next })
             },
         };
 
@@ -24,7 +24,7 @@ export const PoiskKinoApi = {
             console.log(`MOVIES:`);
             console.log(data);
 
-            return data.docs;
+            return data;
         } catch (error) {
             console.error(error);
         }
