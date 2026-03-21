@@ -1,4 +1,24 @@
 
+.filterWrapper {
+    overflow: hidden;
+    transition: all 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.filterWrapper.open {
+    max-height: 500px; 
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.filterWrapper.closed {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -10,13 +30,29 @@
 .containerHeader {
     display: flex;
     align-items: center;
-    gap: 5px;
-    cursor: pointer;
 }
 
-/* .containerHeader:hover {
-    background-color: #aaaaaa;
-} */
+.containerWrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px 20px;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.containerWrapper:hover {
+    background-color: var(--greyish-text);
+}
+
+.containerWrapper:hover .filterSpan {
+    color: white;
+}
+
+.containerWrapper:hover svg path {
+    fill: white;
+}
 
 .containerContent {
     display: grid;
