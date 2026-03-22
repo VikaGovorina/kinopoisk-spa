@@ -18,6 +18,16 @@ SPA для просмотра фильмов с фильтрацией, избр
 - TypeScript
 - React Router
 - Axios
+- Effector
+- PoisKino API
+- CSS Modules
+
+## Установка
+
+```bash
+git clone https://github.com/VikaGovorina/kinopoisk-spa
+npm install
+```
 
 ## Переменные окружения
 
@@ -25,10 +35,8 @@ SPA для просмотра фильмов с фильтрацией, избр
 
 VITE_API_KEY=your_api_key
 
-## Установка
+## Запуск
 
 ```bash
-git clone https://github.com/VikaGovorina/kinopoisk-spa
-npm install
 npm run dev
 ```
