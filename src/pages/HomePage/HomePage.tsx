@@ -6,8 +6,9 @@ import { Link, useSearchParams } from "react-router-dom";
 import type { GenresType } from "../../types/filters";
 import styles from './HomePage.module.css'
 import { ComparePanel } from "../../components/ComparePanel/ComparePanel";
-import { useCompare } from "../../context/CompareContext";
 import TopLoader from "../../ui/TopLoader";
+import { useUnit } from "effector-react";
+import { $compareList } from "../../store/compare";
 
 export default function HomePage() {
     const [movies, setMovies] = useState<MovieType[]>([]);
@@ -43,7 +44,7 @@ export default function HomePage() {
     };
 
     // comparing
-    const {compareList} = useCompare();
+    const [compareList] = useUnit([$compareList]);
 
     useEffect(() => {
         nextRef.current = next;

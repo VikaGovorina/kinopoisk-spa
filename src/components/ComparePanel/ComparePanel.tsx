@@ -1,9 +1,10 @@
 
-import { useCompare } from "../../context/CompareContext";
+import { useUnit } from "effector-react";
 import styles from "./ComparePanel.module.css";
+import { $compareList } from "../../store/compare";
 
 export const ComparePanel = () => {
-    const { compareList } = useCompare();
+    const [compareList] = useUnit([$compareList]);
 
     if (compareList.length === 0) return null;
 
@@ -20,7 +21,7 @@ export const ComparePanel = () => {
 
                     <tr>
                         <td>Год</td>
-                        {compareList.map(m => <td key={m.id}>{m.year}</td>)}
+                        {compareList.map(m => <td key={m.id}>{m.year || "-"}</td>)}
                     </tr>
 
                     <tr>

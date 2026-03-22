@@ -4,7 +4,8 @@ import type { MovieType } from '../../types/movie'
 import { Filter } from '../Filter/Filter'
 import { Movie } from '../Movie/Movie'
 import styles from './Movies.module.css'
-import { useCompare } from '../../context/CompareContext';
+import { useUnit } from 'effector-react';
+import { $compareList, toggleCompare } from '../../store/compare';
 
 interface Props {
     moviesData: MovieType[];
@@ -31,7 +32,7 @@ export const Movies = function Movies({
     yearFrom,
     yearTo,
 }: Props) {
-    const { toggleCompare, isInCompare } = useCompare();
+    const [compareList, toggle] = useUnit([$compareList, toggleCompare]);
 
     return (
         <div className={styles.container}>
@@ -79,8 +80,8 @@ export const Movies = function Movies({
 
                         <input 
                             type="checkbox"
-                            checked={isInCompare(movie.id)}
-                            onChange={() => toggleCompare(movie)}
+                            checked={compareList.some(m => m.id === movie.id)}
+                            onChange={() => toggle(movie)}
                         />  
                     </div>
                 ))}
