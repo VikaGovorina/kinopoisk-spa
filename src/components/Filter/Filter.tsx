@@ -58,7 +58,7 @@ export function Filter({
         <div className={styles.filtersContainer}>
             <div className={styles.modal}>
                 <div className={styles.column}>
-                    <h4>Genres</h4>
+                    <h4>Жанры</h4>
                     <div className={styles.genresList}>
                         {genres.map(genre => (
                             <label key={genre.name} htmlFor={genre.name}>
@@ -75,7 +75,7 @@ export function Filter({
                 </div>
 
                 <div className={styles.column}>
-                    <h4>Rating</h4>
+                    <h4>Рейтинг</h4>
                     <input
                         id={styles.ratingFrom}
                         min={0}
@@ -100,7 +100,7 @@ export function Filter({
                 </div>
 
                 <div className={styles.column}>
-                    <h4>Year</h4>
+                    <h4>Год</h4>
                     <input
                         id={styles.yearFrom}
                         type="number"
@@ -121,8 +121,8 @@ export function Filter({
                 
             </div>
             <div className={styles.actions}>
-                <button onClick={applyFilters}>Apply</button>
-                <button onClick={onClose}>Close</button>
+                <button onClick={applyFilters}>Применить</button>
+                <button onClick={onClose}>Зыкрыть</button>
             </div>
         </div>
     );
