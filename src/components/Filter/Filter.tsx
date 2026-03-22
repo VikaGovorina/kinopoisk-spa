@@ -81,7 +81,7 @@ export function Filter({
                         min={0}
                         max={10}
                         type="number"
-                        placeholder="From"
+                        placeholder="От"
                         value={localRatingFrom}
                         onChange={(e) => {
                             const num = Math.max(0, Math.min(10, Number(e.target.value)));
@@ -93,7 +93,7 @@ export function Filter({
                         min={0}
                         max={10}
                         type="number"
-                        placeholder="To"
+                        placeholder="До"
                         value={localRatingTo}
                         onChange={(e) => setLocalRatingTo(e.target.value)}
                     />
@@ -105,7 +105,7 @@ export function Filter({
                         id={styles.yearFrom}
                         type="number"
                         min={1990}
-                        placeholder="From"
+                        placeholder="C"
                         value={localYearFrom}
                         onChange={(e) => setLocalYearFrom(e.target.value)}
                     />
@@ -113,7 +113,7 @@ export function Filter({
                         id={styles.yearTo}
                         type="number"
                         min={1990}
-                        placeholder="To"
+                        placeholder="По"
                         value={localYearTo}
                         onChange={(e) => setLocalYearTo(e.target.value)}
                     />
