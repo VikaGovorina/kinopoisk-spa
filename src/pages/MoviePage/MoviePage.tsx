@@ -3,18 +3,21 @@ import { useParams } from "react-router-dom";
 import { PoiskKinoApi } from "../../api/PoiskKinoApi";
 import type { MovieType } from "../../types/movie";
 import styles from './MoviePage.module.css';
-import { useFavorites } from "../../context/FavoritesContext";
 import { ConfirmModal } from "../../components/ConfirmModal/ConfirmModal";
 import TopLoader from "../../ui/TopLoader";
 import { movieDataFormatter } from "../../utils/movieDataFormatter";
+import { useUnit } from "effector-react";
+import { $favorites, addToFavorites, removeFromFavorites } from "../../store/favorites";
 
 export default function MoviePage() {
     const { id } = useParams();
     const [movie, setMovie] = useState<MovieType | null>(null);
     const [loading, setLoading] = useState(true);
-    const { addToFavorites, isFavorite, removeFromFavorites } = useFavorites();
     const [showModal, setShowModal] = useState<boolean>(false);
     const moviePoster = movieDataFormatter.getPoster(movie?.poster?.url);
+
+    const favorites = useUnit($favorites);
+    const isFavorite = (id: number) => favorites.some(m => m.id === id);
 
     useEffect(() => {
         if (!id) {

@@ -16,6 +16,10 @@
     position: relative;
 }
 
+.noMovies {
+    margin: 50px;
+}
+
 .removeButton {
     position: absolute;
     top: 8px;

@@ -1,16 +1,18 @@
 import { Movie } from "../../components/Movie/Movie";
-import { useFavorites } from "../../context/FavoritesContext";
 import { Link } from "react-router-dom";
 import styles from './FavoritesPage.module.css'
 import { useState } from "react";
 import { ConfirmModal } from "../../components/ConfirmModal/ConfirmModal";
+import { useUnit } from "effector-react";
+import { $favorites, removeFromFavorites } from "../../store/favorites";
 
 export default function FavoritesPage() {
-    const { favorites, removeFromFavorites } = useFavorites();
+    const favorites = useUnit($favorites);
+
     const [movieToRemove, setMovieToRemove] = useState<number | null>(null);
 
     if (favorites.length === 0) {
-        return <p>Нет избранных фильмов</p>;
+        return <p className={styles.noMovies}>Нет избранных фильмов</p>;
     }
 
     const handleConfirmRemove = () => {
