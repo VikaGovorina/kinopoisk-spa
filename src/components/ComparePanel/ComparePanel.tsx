@@ -15,7 +15,7 @@ export const ComparePanel = () => {
                 <tbody>
                     <tr>
                         <td>Название</td>
-                        {compareList.map(m => <td key={m.id}>{m.alternativeName}</td>)}
+                        {compareList.map(m => <td key={m.id}>{m.name || m.alternativeName}</td>)}
                     </tr>
 
                     <tr>
@@ -25,7 +25,7 @@ export const ComparePanel = () => {
 
                     <tr>
                         <td>Рейтинг</td>
-                        {compareList.map(m => <td key={m.id}>{m.rating.imdb}</td>)}
+                        {compareList.map(m => <td key={m.id}>{m.rating.imdb || m.rating.kp || "-"}</td>)}
                     </tr>
 
                     <tr>

@@ -7,6 +7,7 @@ import type { GenresType } from "../../types/filters";
 import styles from './HomePage.module.css'
 import { ComparePanel } from "../../components/ComparePanel/ComparePanel";
 import { useCompare } from "../../context/CompareContext";
+import TopLoader from "../../ui/TopLoader";
 
 export default function HomePage() {
     const [movies, setMovies] = useState<MovieType[]>([]);
@@ -124,6 +125,8 @@ export default function HomePage() {
 
     return (
         <>
+            <TopLoader loading={loading}/>
+
             <header>
                 <Link to={`/favorites`}>
                     <div className={styles.favoritesIcon}>

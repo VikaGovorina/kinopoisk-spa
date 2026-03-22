@@ -7,7 +7,7 @@
 }
 
 .poster {
-    height: 344px;
+    height: 425px;
     overflow: hidden;
     position: relative;
 }
@@ -51,6 +51,10 @@
     line-clamp: 1;
     font-size: 0.8rem;
     font-weight: 500;
+}
+
+.movieContainer:hover .title {
+    color: orange;
 }
 
 .info {

@@ -72,8 +72,8 @@ export const Movies = function Movies({
             <div className={styles.containerContent}>
                 {moviesData.map(movie => (
 
-                    <div className={styles.movieContent}>
-                        <Link key={movie.id} to={`/movie/${movie.id}`} className={styles.link}>
+                    <div className={styles.movieContent} key={movie.id}>
+                        <Link to={`/movie/${movie.id}`} className={styles.link}>
                             <Movie movieData={movie} />
                         </Link>
 

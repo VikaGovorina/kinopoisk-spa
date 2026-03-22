@@ -24,6 +24,7 @@ header {
 }
 
 .moviesWrapper {
+    margin: 0 32px;
     width: 100%;
     transition: width 0.4s ease;
 }

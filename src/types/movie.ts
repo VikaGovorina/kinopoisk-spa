@@ -1,14 +1,14 @@
 
 export interface MovieType {
     id: number;
-    // name: string;
+    name: string;
     alternativeName: string;
     rating: {
         imdb: number;
-        // russianFilmCritics: number;
+        kp: number;
     };
     year: number;
-    // description: string;
+    description: string;
     genres: Array<{ name: string }>;
     poster?: {
         url: string;
@@ -16,18 +16,8 @@ export interface MovieType {
     movieLength?: number;
 }
 
-export interface MovieByIdType {
-    id: number;
-    name: string;
-    alternativeName: string;
-    rating: {
-        imdb: number;
-        // russianFilmCritics: number;
-    };
-    year: number;
-    description: string;
-    genres: Array<{name: string}>;
-    poster?: {
-        url: string;
-    };
+export interface MoviesUniversalSearchType {
+    docs: MovieType[];
+    next: string;
+    hasNext: boolean;
 }
