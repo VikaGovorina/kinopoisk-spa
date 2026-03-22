@@ -34,6 +34,21 @@ h3 + p {
     font-weight: 600;
 }
 
+.movieInfo button {
+    background-color: rgba(0,0,0,.05);
+    transition: background-color .2s ease, transform .2s ease;
+    border-radius: 40px;
+    border: none;
+    padding: 10px 20px;
+    max-width: 200px;
+    cursor: pointer;
+}
+
+.movieInfo button:hover {
+    background-color: rgba(0,0,0,.1);
+    transform: scale(1.05);
+}
+
 .moviePoster {
     min-width: 240px; 
     max-width: 400px;

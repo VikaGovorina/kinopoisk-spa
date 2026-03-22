@@ -58,7 +58,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
     margin: 16px 0;
-    gap: 32px 8px;
+    gap: 32px 16px;
 }
 
 .filterSpan {

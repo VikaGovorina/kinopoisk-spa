@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react"
-import { PoiskKinoApi } from "../api/PoiskKinoApi";
-import type { MovieType } from "../types/movie";
-import { Movies } from "../components/Movies/Movies";
-import { useSearchParams } from "react-router-dom";
-import type { GenresType } from "../types/filters";
+import { PoiskKinoApi } from "../../api/PoiskKinoApi";
+import type { MovieType } from "../../types/movie";
+import { Movies } from "../../components/Movies/Movies";
+import { Link, useSearchParams } from "react-router-dom";
+import type { GenresType } from "../../types/filters";
+import styles from './HomePage.module.css'
 
 export default function HomePage() {
     const [movies, setMovies] = useState<MovieType[]>([]);
@@ -118,6 +119,14 @@ export default function HomePage() {
 
     return (
         <>
+            <header>
+                <Link to={`/favorites`}>
+                    <div className={styles.favoritesIcon}>
+                        <svg width='24' height='24' viewBox="0 0 24 24" focusable="false" aria-hidden="true" fill='#9e9b98' xmlns='http://www.w3.org/2000/svg'><path d='M5.5 3.5h13V21L12 17.45 5.5 21V3.5Z'/></svg>
+                    </div>
+                </Link>
+            </header>
+
             <Movies
                 moviesData={movies}
                 isFiltersOpen={isFiltersOpen}

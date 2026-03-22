@@ -3,12 +3,16 @@ import { useParams } from "react-router-dom";
 import { PoiskKinoApi } from "../../api/PoiskKinoApi";
 import type { MovieByIdType } from "../../types/movie";
 import styles from './MoviePage.module.css';
+import { useFavorites } from "../../context/FavoritesContext";
+import { ConfirmModal } from "../../components/ConfirmModal/ConfirmModal";
 
 export default function MoviePage() { // TODO: сделатб тип форматер где будет в том числе проверка напр если не имя то альтернативное
     // и еще сделать рейтинг тоже несколько и рейтинг как звездочки
     const { id } = useParams();
     const [movie, setMovie] = useState<MovieByIdType | null>(null);
     const [loading, setLoading] = useState(true);
+    const { addToFavorites, isFavorite } = useFavorites(); // types!!
+    const [showModal, setShowModal] = useState(false);  // types!!
 
     useEffect(() => {
         if (!id) {
@@ -44,6 +48,9 @@ export default function MoviePage() { // TODO: сделатб тип форма�
                 <div className={styles.movieInfo}>
                     <h3>{movie.name}</h3>
                     <p>{movie.alternativeName}</p>
+                    <button className={styles.addToFavoritesButton} onClick={() => setShowModal(true)}>
+                        {isFavorite(movie.id) ? "В избранном" : "Добавить в избранное"}
+                    </button>
                     <div className={styles.meta}>
                         <p>Год производства</p>
                         <p>{movie.year}</p>
@@ -58,6 +65,17 @@ export default function MoviePage() { // TODO: сделатб тип форма�
                     </div>
                 </div>
             </div>      
+
+            {showModal && (
+                <ConfirmModal
+                    message="Добавить фильм в избранное?"
+                    onConfirm={() => {
+                        addToFavorites(movie);
+                        setShowModal(false);
+                    }}
+                    onCancel={() => setShowModal(false)}
+                />
+            )}
         </>
     )
 }

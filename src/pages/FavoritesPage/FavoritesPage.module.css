@@ -1,0 +1,40 @@
+
+.movieContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    margin: 16px 32px;
+    gap: 32px;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.content {
+    position: relative;
+}
+
+.removeButton {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgb(198, 5, 5);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.content:hover .removeButton {
+    opacity: 1;
+}

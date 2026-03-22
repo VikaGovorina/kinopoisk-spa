@@ -1,0 +1,37 @@
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.actionsModal {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.actionsModal button {
+    background-color: rgba(0,0,0,.05);
+    transition: background-color .2s ease, transform .2s ease;
+    border-radius: 40px;
+    border: none;
+    padding: 10px 20px;
+    max-width: 200px;
+    cursor: pointer;
+}
+
+.actionsModal button:hover {
+    background-color: rgba(0,0,0,.1);
+    transform: scale(1.05);
+}
