@@ -67,3 +67,9 @@
     line-height: 36px;
     color: var(--greyish-text);
 }
+
+.link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}

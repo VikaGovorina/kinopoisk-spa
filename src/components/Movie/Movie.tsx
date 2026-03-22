@@ -2,7 +2,7 @@ import type { MovieType } from "../../types/movie"
 import { movieDataFormatter } from "../../utils/movieDataFormatter"
 import styles from './Movie.module.css'
 
-export const Movie = function Movie({ movieData }: { movieData: MovieType }) {
+export const Movie = function Movie({ movieData }: { movieData: MovieType }) { // TODO: сделатб затемнение постера при наведении
     const moviePoster = movieDataFormatter.getPoster(movieData.poster?.url);
 
     return (

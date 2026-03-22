@@ -1,0 +1,60 @@
+
+.movieContainer {
+    display: flex;
+    align-items: flex-start;
+    margin: 64px;
+}
+
+h3 {
+    font-size: 40px;
+}
+
+h3 + p {
+    font-size: 0.9rem;
+    color: rgba(0,0,0,.6);
+}
+
+.meta {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 8px 16px;
+    font-size: 0.8rem;
+}
+
+.meta p:nth-child(odd) {
+    color: rgba(0,0,0,.6);
+}
+
+.description {
+    font-size: 0.9rem;
+}
+
+.ratingContainer p:first-child {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.moviePoster {
+    min-width: 240px; 
+    max-width: 400px;
+    margin-right: 16px;
+    flex: 1;
+    
+    overflow: hidden;
+    position: relative;
+
+    display: block;
+}
+
+.posterImage {
+    width: 100%;
+    min-height: 320px;
+    min-width: 100%;
+}
+
+.movieInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

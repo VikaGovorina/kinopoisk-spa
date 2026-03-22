@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import type { GenresType } from '../../types/filters';
 import type { MovieType } from '../../types/movie'
 import { Filter } from '../Filter/Filter'
@@ -37,7 +38,7 @@ export const Movies = function Movies({
                     <span className={ styles.filterSpan}>Filters</span>
                 </div>
             </div>
-            
+
             <div className={`${styles.filterWrapper} ${isFiltersOpen ? styles.open : styles.closed}`}>
                 <Filter
                     genres={possibleGenres}
@@ -66,7 +67,11 @@ export const Movies = function Movies({
             </div>
 
             <div className={styles.containerContent}>
-                {moviesData.map(movie => <Movie key={movie.id} movieData={movie} />)}
+                {moviesData.map(movie => (
+                    <Link key={movie.id} to={`/movie/${movie.id}`} className={styles.link}>
+                        <Movie movieData={movie} />
+                    </Link>
+                ))}
             </div>
         </div>
     )

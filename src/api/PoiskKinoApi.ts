@@ -1,6 +1,7 @@
 import { ENV } from "../config/env";
 import axios from "axios";
 import type { GenresType, MovieFiltersType } from "../types/filters";
+import type { MovieByIdType } from "../types/movie";
 
 const api = axios.create({
     baseURL: ENV.POISKKINO_API_URL,
@@ -16,8 +17,15 @@ const apiV1 = axios.create({
     }
 });
 
+const apiV4 = axios.create({
+    baseURL: "https://api.poiskkino.dev/v1.4", // TODO: move to env
+    headers: {
+        'X-API-KEY': ENV.POISKKINO_API_KEY
+    }
+});
+
 export const PoiskKinoApi = {
-    async getMovies(next?: string, filters?: MovieFiltersType) {
+    async getMovies(next?: string, filters?: MovieFiltersType) { // TODO: add russian rating
         const options = {
             method: 'GET',
             url: "/movie",
@@ -60,5 +68,23 @@ export const PoiskKinoApi = {
             console.error(error);
             return [];
         }
-    }
+    },
+
+    async getMovieById(id: number): Promise<MovieByIdType> {
+        const options = {
+            method: 'GET',
+            url: `/movie/${id}`,
+        };
+
+        try {
+            const { data } = await apiV4.request(options);
+            console.log(`movie by ID:`);
+            console.log(data);
+
+            return data;
+        } catch (error) {
+            console.error(error);
+            return {} as MovieByIdType;
+        }
+    },
 };
