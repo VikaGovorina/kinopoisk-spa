@@ -1,5 +1,4 @@
-[Live Preview](https://kino-poisk-app.vercel.app/)
-
+[Live Preview](https://kino-poisk-e2s5x170w-vikagovorinas-projects.vercel.app/)
 
 # Movie SPA
 
