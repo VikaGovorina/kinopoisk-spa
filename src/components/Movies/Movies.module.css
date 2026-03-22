@@ -73,3 +73,26 @@
     color: inherit;
     display: block;
 }
+
+.movieContent {
+    position: relative;
+}
+
+.movieContent input {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.movieContent:hover input {
+    opacity: 1;
+}
+
+.movieContent input:checked {
+    opacity: 1;
+}

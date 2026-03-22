@@ -5,6 +5,8 @@ import { Movies } from "../../components/Movies/Movies";
 import { Link, useSearchParams } from "react-router-dom";
 import type { GenresType } from "../../types/filters";
 import styles from './HomePage.module.css'
+import { ComparePanel } from "../../components/ComparePanel/ComparePanel";
+import { useCompare } from "../../context/CompareContext";
 
 export default function HomePage() {
     const [movies, setMovies] = useState<MovieType[]>([]);
@@ -38,6 +40,9 @@ export default function HomePage() {
         yearFrom,
         yearTo,
     };
+
+    // comparing
+    const {compareList} = useCompare();
 
     useEffect(() => {
         nextRef.current = next;
@@ -127,19 +132,28 @@ export default function HomePage() {
                 </Link>
             </header>
 
-            <Movies
-                moviesData={movies}
-                isFiltersOpen={isFiltersOpen}
-                setIsFiltersOpen={setIsFiltersOpen}
-                setSearchParams={setSearchParams}
-                possibleGenres={possibleGenres}
-                genres={genres}
-                ratingFrom={ratingFrom}
-                ratingTo={ratingTo}
-                yearFrom={yearFrom}
-                yearTo={yearTo}
-            />
-            <div ref={targetLoader} style={{ height: '300px' }} />
+            <div className={styles.layout}>
+                <div className={`${styles.moviesWrapper} ${compareList.length > 0 ? styles.withPanel : ""}`}>
+                    <Movies
+                        moviesData={movies}
+                        isFiltersOpen={isFiltersOpen}
+                        setIsFiltersOpen={setIsFiltersOpen}
+                        setSearchParams={setSearchParams}
+                        possibleGenres={possibleGenres}
+                        genres={genres}
+                        ratingFrom={ratingFrom}
+                        ratingTo={ratingTo}
+                        yearFrom={yearFrom}
+                        yearTo={yearTo}
+                    />
+                    <div ref={targetLoader} style={{ height: '300px' }} />
+                </div>
+
+                <div className={`${styles.compareWrapper} ${compareList.length > 0 ? styles.open : ""}`}>
+                    <ComparePanel />
+                </div>
+            </div>
+
         </>
     )
 }

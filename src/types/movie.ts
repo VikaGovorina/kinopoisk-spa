@@ -9,11 +9,11 @@ export interface MovieType {
     };
     year: number;
     // description: string;
-    // genres: Array<{ name: string }>;
-    // countries: Array<{ name: string }>;
+    genres: Array<{ name: string }>;
     poster?: {
         url: string;
     };
+    movieLength?: number;
 }
 
 export interface MovieByIdType {

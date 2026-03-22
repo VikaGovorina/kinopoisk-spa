@@ -16,3 +16,31 @@ header {
 .favoritesIcon svg:hover {
     fill: white;
 }
+
+.layout {
+    display: flex;
+    width: 100%;
+    transition: all 0.4s ease;
+}
+
+.moviesWrapper {
+    width: 100%;
+    transition: width 0.4s ease;
+}
+
+.moviesWrapper.withPanel {
+    width: 66%;
+}
+
+.compareWrapper {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.4s ease;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.compareWrapper.open {
+    width: 34%;
+}

@@ -4,6 +4,7 @@ import type { MovieType } from '../../types/movie'
 import { Filter } from '../Filter/Filter'
 import { Movie } from '../Movie/Movie'
 import styles from './Movies.module.css'
+import { useCompare } from '../../context/CompareContext';
 
 interface Props {
     moviesData: MovieType[];
@@ -30,6 +31,8 @@ export const Movies = function Movies({
     yearFrom,
     yearTo,
 }: Props) {
+    const { toggleCompare, isInCompare } = useCompare();
+
     return (
         <div className={styles.container}>
             <div className={styles.containerHeader}>
@@ -68,9 +71,18 @@ export const Movies = function Movies({
 
             <div className={styles.containerContent}>
                 {moviesData.map(movie => (
-                    <Link key={movie.id} to={`/movie/${movie.id}`} className={styles.link}>
-                        <Movie movieData={movie} />
-                    </Link>
+
+                    <div className={styles.movieContent}>
+                        <Link key={movie.id} to={`/movie/${movie.id}`} className={styles.link}>
+                            <Movie movieData={movie} />
+                        </Link>
+
+                        <input 
+                            type="checkbox"
+                            checked={isInCompare(movie.id)}
+                            onChange={() => toggleCompare(movie)}
+                        />  
+                    </div>
                 ))}
             </div>
         </div>
