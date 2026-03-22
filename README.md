@@ -1,3 +1,6 @@
+[Live Preview](https://kino-poisk-app.vercel.app/)
+
+
 # Movie SPA
 
 ## Описание
