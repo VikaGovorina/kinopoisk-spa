@@ -35,7 +35,7 @@ npm install
 
 Создайте файл `.env` на основе `.env.default` и укажите API ключ:
 
-VITE_API_KEY=your_api_key
+VITE_POISKKINO_API_KEY=your_api_key
 
 ## Запуск
 
