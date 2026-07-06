@@ -52,17 +52,26 @@ export default function MoviePage() {
                         {isFavorite(movie.id) ? "В избранном" : "Добавить в избранное"}
                     </button>
                     <div className={styles.meta}>
-                        <p>Год производства</p>
-                        <p>{movie.year}</p>
-
-                        <p>Жанр</p>
-                        <p>{movie.genres.map(genre => genre.name).join(', ')}</p>
+                        {movie.year && 
+                            <>
+                                <p>Год производства</p>
+                                <p>{movie.year}</p>    
+                            </>
+                        }
+                        {movie.genres && <>
+                            <p>Жанр</p>
+                            <p>{movie.genres.map(genre => genre.name).join(', ')}</p>                       
+                        </>}
+ 
                     </div>
-                    <p className={styles.description}>{movie.description}</p>
-                    <div className={styles.ratingContainer}>
-                        <p>Рейтинг</p>
-                        <p>{movie.rating.imdb || movie.rating.kp || '0'}</p>
-                    </div>
+                    {movie.description && <p className={styles.description}>{movie.description}</p>}
+                    
+                    {movie.rating && (movie.rating.imdb > 0 || movie.rating.kp > 0) && 
+                        <div className={styles.ratingContainer}>
+                            <p>Рейтинг</p>
+                            <p>{movie.rating.imdb || movie.rating.kp || '0'}</p>
+                        </div>
+                    }
                 </div>
             </div>
             

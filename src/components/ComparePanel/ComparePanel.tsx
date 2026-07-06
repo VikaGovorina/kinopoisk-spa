@@ -16,24 +16,24 @@ export const ComparePanel = () => {
                 <tbody>
                     <tr>
                         <td>Название</td>
-                        {compareList.map(m => <td key={m.id}>{m.name || m.alternativeName}</td>)}
+                        {compareList.map(m => <td key={m.id}>{m.name ?? m.alternativeName ?? '-'}</td>)}
                     </tr>
 
                     <tr>
                         <td>Год</td>
-                        {compareList.map(m => <td key={m.id}>{m.year || "-"}</td>)}
+                        {compareList.map(m => <td key={m.id}>{m.year ?? "-"}</td>)}
                     </tr>
 
                     <tr>
                         <td>Рейтинг</td>
-                        {compareList.map(m => <td key={m.id}>{m.rating.imdb || m.rating.kp || "-"}</td>)}
+                        {compareList.map(m => <td key={m.id}>{m.rating ? (m.rating.imdb ?? m.rating.kp ?? "-") : "-"}</td>)}
                     </tr>
 
                     <tr>
                         <td>Жанры</td>
                         {compareList.map(m => (
                             <td key={m.id}>
-                                {m.genres?.map(g => g.name).join(", ") || "-"}
+                                {m.genres ? (m.genres?.map(g => g.name).join(", ") ?? "-") : '-'}
                             </td>
                         ))}
                     </tr>
@@ -42,7 +42,7 @@ export const ComparePanel = () => {
                         <td>Длительность</td>
                         {compareList.map(m => (
                             <td key={m.id}>
-                                {m.movieLength || "-"}
+                                {m.movieLength ?? "-"}
                             </td>
                         ))}
                     </tr>
